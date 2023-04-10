@@ -12,9 +12,30 @@ const rl = readline.createInterface({
 
 
 const pigLatin = (word) => {
+   // For words that start with vowel
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  word = word.trim().toLowerCase();
+  let firstLetter = word[0];
+  if (vowels.includes(firstLetter)) {
+    let pigLatinWord = word + 'yay';
+    return pigLatinWord;
+  }
+  // For words that start with consonant
+  else {
+    let consonantList = ''
 
-  // Your code here
+    for (let currentLetter of word) {
+      if (vowels.includes(currentLetter)) {
+        break;
+      }
+      else {
+       consonantList += currentLetter;
+      }
+    }
 
+    let pigLatinWord = word.substr(consonantList.length) + consonantList + 'ay';
+    return pigLatinWord;
+  }
 }
 
 // the first function called in the program to get an input from the user
